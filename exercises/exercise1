@@ -1,0 +1,11 @@
+2.2.0 :038 > b = Brewery.new(name:"BrewDog", year:2007)
+2.2.0 :038 > b.save
+2.2.0 :040 > beer = Beer.create name:"Punk IPA", style:"IPA", brewery_id:b.id
+2.2.0 :040 > beer.ratings.create score:16
+2.2.0 :040 > beer.ratings.create score:13
+2.2.0 :040 > beer.ratings.create score:64
+2.2.0 :040 > beer = Beer.create name:"Nanny State", style:"lowalcohol", brewery_id:b.id
+2.2.0 :040 > beer.ratings.create score:2
+2.2.0 :040 > beer.ratings.create score:4
+2.2.0 :040 > beer.ratings.create score:1
+
