@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <strong><%= @user.username %></strong>
+</h1>
+
+<p>
+  has made <%= @user.ratings.count %> ratings, average <%= @user.average_rating %>
+</p>
+
+<p>
+  <strong>ratings</strong>
+</p>
+
+<p>
+  <% @user.ratings.each do |rating| %>
+      <%= rating.beer %>
+      <%= rating.score %>
+      <% if @user == current_user %>
+          <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <br>
+  <% end %>
+</p>
+
+<% if @user == current_user %>
+    <%= link_to 'Destroy', user_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
+<%= link_to 'Back', users_path %>
